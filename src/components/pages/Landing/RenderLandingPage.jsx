@@ -59,6 +59,7 @@ function RenderLandingPage(props) {
           type="default"
           style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
           onClick={() => history.push('/graphs')}
+          className='download-btn'
         >
           Download the Data
         </Button>{' '}
@@ -118,7 +119,6 @@ function RenderLandingPage(props) {
             Read More
           </Button>
         </div>
-
         <p onClick={() => scrollToTop()} className="back-to-top">
           Back To Top ^
         </p>
