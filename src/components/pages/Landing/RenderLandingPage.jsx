@@ -35,15 +35,15 @@ function RenderLandingPage(props) {
       {/* added new img containers and styles to design page the user wanted */}
       <div className="graphs-section">
         <div className="grant-img-container">
-          <img src={GrantRatesByOfficeImg} alt="" />
+          <img src={GrantRatesByOfficeImg} alt="GrantRatesByOffice" />
           <p>Search Grant Rates By Office</p>
         </div>
         <div className="grant-img-container">
-          <img src={GrantRatesByNationalityImg} alt="" />
+          <img src={GrantRatesByNationalityImg} alt="GrantRatesByNationality" />
           <p>Search Grant Rates By Nationality</p>
         </div>
         <div className="grant-img-container">
-          <img src={GrantRatesOverTimeImg} alt="" />
+          <img src={GrantRatesOverTimeImg} alt="GrantRatesOverTime" />
           <p>Search Grant Rates Over Time</p>
         </div>
       </div>
@@ -59,7 +59,7 @@ function RenderLandingPage(props) {
           type="default"
           style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
           onClick={() => history.push('/graphs')}
-          className='download-btn'
+          className="download-btn"
         >
           Download the Data
         </Button>{' '}
