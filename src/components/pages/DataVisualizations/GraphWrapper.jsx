@@ -51,15 +51,15 @@ function GraphWrapper(props) {
     }
   }
 
-  useEffect(() => {
-    axios.get('https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary')
-    .then(res => {
-      console.log(res.data.yearResults);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get('https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary')
+  //   .then(res => {
+  //     console.log(res.data);
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   });
+  // }, []);
 
   function updateStateWithNewData(years, view, office, stateSettingCallback) {
     /*
@@ -86,7 +86,7 @@ function GraphWrapper(props) {
 
     if (office === 'all' || !office) {
       axios
-        .get('https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary', {
+        .get('https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary?to=2022&from=2015', {
           // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
           params: {
             from: years[0],
@@ -94,14 +94,21 @@ function GraphWrapper(props) {
           },
         })
         .then(result => {
-          stateSettingCallback(view, office, test_data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+          console.log(result.data);
+
+          if (result.data && result.data.yearResults) {
+            console.log(result.data.yearResults);
+          } else {
+            console.log('cannot access yearResults because it is undefined');
+          }
+          stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
         })
         .catch(err => {
           console.error(err);
         });
     } else {
       axios
-        .get('https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary', {
+        .get('https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary?to=2022&from=2015', {
           // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
           params: {
             from: years[0],
@@ -110,7 +117,7 @@ function GraphWrapper(props) {
           },
         })
         .then(result => {
-          stateSettingCallback(view, office, test_data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+          stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
         })
         .catch(err => {
           console.error(err);
