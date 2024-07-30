@@ -6,6 +6,7 @@ import {
   // useHistory,
   Switch,
 } from 'react-router-dom';
+import Auth0ProviderWithHistory from './components/common/auth0-provider-with-history';
 
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
@@ -30,7 +31,9 @@ ReactDOM.render(
   <Router>
     <Provider store={store}>
       <React.StrictMode>
-        <App />
+        <Auth0ProviderWithHistory>
+          <App />
+        </Auth0ProviderWithHistory>
       </React.StrictMode>
     </Provider>
   </Router>,
