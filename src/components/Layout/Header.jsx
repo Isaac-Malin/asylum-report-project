@@ -11,9 +11,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 const { primary_accent_color } = colors;
 
 function HeaderContent() {
-  const {isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated, isLoading } = useAuth0();
 
-  if(isLoading) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 
@@ -38,9 +38,11 @@ function HeaderContent() {
         <Link to="/graphs" style={{ color: '#E2F0F7' }}>
           Graphs
         </Link>
-        <Link to='profile' style={{ color: '#E2F0F7', marginLeft: '75px'}}>
-          Profile
-        </Link>
+        {isAuthenticated && (
+          <Link to="profile" style={{ color: '#E2F0F7', marginLeft: '75px' }}>
+            Profile
+          </Link>
+        )}
         {isAuthenticated ? <LogoutButton /> : <LoginButton />}
       </div>
     </div>
