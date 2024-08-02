@@ -50,6 +50,7 @@ function SubFooter() {
       style={{
         backgroundColor: primary_accent_color,
         marginLeft: '-7px',
+        height: '35vh'
       }}
     >
       <Space direction="horizontal">
