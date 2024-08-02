@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import '../../CSS/ProfilePage.css';
 
 const ProfilePage = (props) => {
 
@@ -14,10 +15,11 @@ const ProfilePage = (props) => {
   }
 
   return (
-    <div>
-      <h1>User Information</h1>
-      <p>{user.name}</p>
-      <img src={user.picture} alt="profile pic" />
+    <div className='userInfo-container'>
+      <h1 className='headline'>User Information</h1>
+      <h3 className='user-name'>{user.name}</h3>
+      <p className='user-email'>{user.email}</p>
+      <img className='user-picture' src={user.picture} alt="profile pic" />
     </div>
   );
 };
