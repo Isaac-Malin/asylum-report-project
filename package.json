@@ -76,13 +76,13 @@
   "private": false,
   "repository": "github:Lambda-School-Labs/labs-spa-starter",
   "scripts": {
-    "build": "craco --max_old_space_size=4096 build",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
     "coverage": "npm test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "format": "prettier --write 'src/**/*.{js,jsx,css,scss}'",
     "lint": "eslint 'src/**/*.{js,jsx}'",
     "prettier": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
-    "start": "node start.js",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider next start",
     "test": "craco test --env=jest-environment-jsdom-sixteen"
   },
   "version": "0.1.0"
