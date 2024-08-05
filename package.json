@@ -40,6 +40,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^10.2.1",
     "@testing-library/user-event": "^7.2.1",
+    "cross-env": "^7.0.3",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-react-hooks": "^4.0.4",
     "husky": "^4.2.5",
@@ -76,7 +77,7 @@
   "private": false,
   "repository": "github:Lambda-School-Labs/labs-spa-starter",
   "scripts": {
-    "build": "NODE_OPTIONS=--openssl-legacy-provider craco --max_old_space_size=4096 build",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider craco --max_old_space_size=4096 build",
     "coverage": "npm test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "format": "prettier --write 'src/**/*.{js,jsx,css,scss}'",
